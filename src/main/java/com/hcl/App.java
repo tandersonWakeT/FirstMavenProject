@@ -1,6 +1,8 @@
 package com.hcl;
 import java.util.Scanner;
 
+import com.hcl.exception.MyException;
+
 /**
  * Hello world!
  *
@@ -61,5 +63,23 @@ public class App
         	default:
         		System.out.println("This is not a day of the week");
         }
+        
+        Scanner kb2 = new Scanner(System.in);
+		System.out.println("Enter your name: ");
+		
+		try {
+			kb2.nextLine();
+			String name = kb2.nextLine();
+			
+			if (!Character.isUpperCase(name.charAt(0))) {
+				throw new MyException("First character must be uppercase.");
+			}
+		}
+		catch (MyException e) {
+			System.out.println(e);
+		}
+		finally {
+			kb2.close();
+		}
     }
 }
