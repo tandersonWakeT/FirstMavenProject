@@ -26,7 +26,7 @@ public class App
         Scanner kb = new Scanner(System.in);
         System.out.println("Enter an integer value");
         int j = kb.nextInt();
-        kb.close();
+        kb.nextLine();
         
         int k = 0;
         while (k < j) {
@@ -64,12 +64,11 @@ public class App
         		System.out.println("This is not a day of the week");
         }
         
-        Scanner kb2 = new Scanner(System.in);
+        
 		System.out.println("Enter your name: ");
 		
 		try {
-			kb2.nextLine();
-			String name = kb2.nextLine();
+			String name = kb.nextLine();
 			
 			if (!Character.isUpperCase(name.charAt(0))) {
 				throw new MyException("First character must be uppercase.");
@@ -79,7 +78,7 @@ public class App
 			System.out.println(e);
 		}
 		finally {
-			kb2.close();
+			kb.close();
 		}
     }
 }
